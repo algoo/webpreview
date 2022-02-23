@@ -38,7 +38,6 @@ class LengthLimitedResponse(requests.Response):
     @property
     def text_content(self):
         if self.binary_content:
-            #
             encoding = self.encoding
             if not encoding:
                 encoding = self.apparent_encoding
@@ -232,7 +231,7 @@ class Schema(SocialPreviewBase):
         super(Schema, self).__init__(*args, **kwargs)
 
 
-def web_preview(url, timeout=None, headers=None, absolute_image_url=False, content=None, parser=None, content_length_limit = None):
+def web_preview(url, timeout=None, headers=None, absolute_image_url=False, content=None, parser=None, content_length_limit=None):
     """
     Extract title, description and image from OpenGraph or TwitterCard or Schema or GenericPreview. Which ever returns first.
     """
